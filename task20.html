@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 20</title>
+    <style>
+        body{
+            text-align: auto;
+            background-color: rgb(112, 219, 215);
+        }
+        h1{
+            color: rgb(12, 11, 11);
+            
+        }
+        button{
+            padding: 5px;
+            color: rgb(246, 237, 237);
+            background-color: rgb(9, 9, 7);
+        }
+        label{
+            color: rgb(0, 136, 255);
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Sorting the String</h1>
+    <label>Enter the String:</label>
+    <input type="text" id="input" placeholder="Enter the Number" name="num"><br><br>
+    <button onclick="sortstring()">Sort String</button><br><br>
+    <label>Expected Output:</label>
+    <input type="text" id="output" name="output"><br><br>
+    <script>
+        function sortstring(){
+            var rev = document.getElementById("input");
+            var kal = rev.value;
+            var vas = kal.split("").sort().join("");
+            var sur = document.getElementById("output");
+            sur.value = vas;
+            }
+        </script>
+</body>
+</html>

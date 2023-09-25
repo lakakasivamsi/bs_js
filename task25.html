@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            height: 400px;
+            width: 1500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #start {
+            margin-left: 650px;
+        }
+
+        #stop {
+            margin-left: 100px;
+        }
+
+        #imgg {
+            height: 190px;
+            margin-top: 190px;
+            position: absolute;
+        }
+        #start{
+            background-color: rgb(70, 70, 163);
+            padding: 15px;
+
+        }
+        #stop{
+            background-color: rgb(172, 42, 42);
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <img src="https://cdn3.vectorstock.com/i/1000x1000/08/87/cartoon-car-vector-720887.jpg" id="imgg">
+    </div>
+    <button id="start" onclick="startt()">Start</button>
+    <button id="stop" onclick="stopp()">Stop</button>
+    <script>
+        var train = document.getElementById("imgg");
+        var startbtn = document.getElementById('start');
+        var stopbtn = document.getElementById('stop');
+        let animationId;
+
+        function startt() {
+            let position = 0;
+            const speed = 2;
+
+            function move() {
+                position += speed;
+                train.style.left = position + 'px';
+
+                if (position < 1500 ) {
+                    animationId = requestAnimationFrame(move);
+                }
+            }
+
+            animationId = requestAnimationFrame(move);
+        }
+
+        function stopp() {
+            cancelAnimationFrame(animationId);
+        }
+
+        startbtn.addEventListener('click', startt);
+        stopbtn.addEventListener('click', stopp);
+    </script>
+</body>
+</html>
